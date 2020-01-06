@@ -111,7 +111,7 @@
             },
 			update: function () {
 				const vm = this
-				axios.patch(`http://51.124.10.15/events/event/${this.event._id}`, this.updatableEvent)
+				axios.patch(`${process.env.VUE_APP_API}/events/event/${this.event._id}`, this.updatableEvent)
 					.then(res => {
 						if (res && res.data) {
 							vm.updatableEvent = res.data
@@ -121,7 +121,7 @@
 			},
 			createEvent: function () {
 				const vm = this
-				axios.post(`http://51.124.10.15/events/event`, this.updatableEvent)
+				axios.post(`${process.env.VUE_APP_API}/events/event`, this.updatableEvent)
 					.then(res => {
 						if (res && res.data) {
 							vm.updatableEvent = res.data
@@ -152,7 +152,7 @@
 			deleteEvent: function () {
 				this.$emit('changeDialog', false)
 
-				axios.delete(`http://51.124.10.15/events/event/${this.event._id}`)
+				axios.delete(`${process.env.VUE_APP_API}/events/event/${this.event._id}`)
 					.then(() => {
 						this.$emit('deletedEvent', this.event._id)
 					})

@@ -132,8 +132,8 @@
 			},
 		},
 		mounted() {
-			axios
-				.get(`http://51.124.10.15/events?startDate=${this.today.getFullYear()}-${this.today.getMonth() + 1}-${this.today.getDate()}`)
+            axios
+				.get(`${process.env.VUE_APP_API}/events?startDate=${this.today.getFullYear()}-${this.today.getMonth() + 1}-${this.today.getDate()}`)
 				.then(response => {
 					if (response && response.data) {
 						this.eventsToday = response.data
@@ -141,7 +141,7 @@
 				})
 
 			axios
-				.get(`http://51.124.10.15/events?startDate=${this.yesterday.getFullYear()}-${this.yesterday.getMonth() + 1}-${this.yesterday.getDate()}`)
+				.get(`${process.env.VUE_APP_API}/events?startDate=${this.yesterday.getFullYear()}-${this.yesterday.getMonth() + 1}-${this.yesterday.getDate()}`)
 				.then(response => {
 					if (response && response.data) {
 						this.eventsYesterday = response.data
@@ -149,7 +149,7 @@
 				})
 
 			axios
-				.get(`http://51.124.10.15/events?startDate=${this.tomorrow.getFullYear()}-${this.tomorrow.getMonth() + 1}-${this.tomorrow.getDate()}`)
+				.get(`${process.env.VUE_APP_API}/events?startDate=${this.tomorrow.getFullYear()}-${this.tomorrow.getMonth() + 1}-${this.tomorrow.getDate()}`)
 				.then(response => {
 					if (response && response.data) {
 						this.eventsTomorrow = response.data
@@ -157,7 +157,7 @@
 				})
 
 			axios
-				.post(`http://51.124.10.15/venues`, {
+				.post(`${process.env.VUE_APP_API}/venues`, {
 					"query": `{
                         venues {
                             _id

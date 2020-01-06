@@ -48,7 +48,7 @@
 		}),
 		mounted() {
 			axios
-				.post(`http://51.124.10.15/venues`, {
+				.post(`${process.env.VUE_APP_API}/venues`, {
 					"query": `{
                         venues {
                             _id
